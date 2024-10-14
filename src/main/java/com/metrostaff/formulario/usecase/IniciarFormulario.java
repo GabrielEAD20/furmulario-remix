@@ -35,11 +35,12 @@ public class IniciarFormulario {
         var preguntaInformacion = preguntaService.getById(idPregunta);
         // 5 Obtener el id de la pregunta
         idPregunta = preguntaInformacion.getId();
-        // 6 Obtener la informacion de la pregunta
+        // 6 Obtener el tipo de pregunta de la pregunta
         var informacionPregunta = preguntaInformacion.getDescripcionMostrar();
-        // 6 Verificar si tiene opciones
+        // 7 Verificar si tiene opciones
+        var tipoDePregunta = preguntaInformacion.getTipoPregunta();
         if (preguntaInformacion.isTieneOpciones())
-            //7 Obtener las opciones
+            //8  Obtener las opciones
         {
             var listaOpciones = opcionPreguntaService.getAllOpcionesByPreguntaId (idPregunta);
             // Usar Streams para mapear la lista de OpcionPregunta a OpcionDTO
@@ -51,17 +52,18 @@ public class IniciarFormulario {
                         return opcionDTO;
                     })
                     .toList();
+
             IniciarFormularioDTO iniciarFormularioDTO = new IniciarFormularioDTO();
             iniciarFormularioDTO.setQuestionId(idPregunta);
             iniciarFormularioDTO.setQuestionText(informacionPregunta);
-            iniciarFormularioDTO.setQuestionType(IniciarFormularioConstant.MULTIPLE_CHOOSE);
+            iniciarFormularioDTO.setQuestionType(tipoDePregunta);
             iniciarFormularioDTO.setOptions(opcionesDTO);
             return iniciarFormularioDTO;
         }
         IniciarFormularioDTO iniciarFormularioDTO = new IniciarFormularioDTO();
         iniciarFormularioDTO.setQuestionId(idPregunta);
         iniciarFormularioDTO.setQuestionText(informacionPregunta);
-        iniciarFormularioDTO.setQuestionType(IniciarFormularioConstant.MULTIPLE_CHOOSE);
+        iniciarFormularioDTO.setQuestionType(tipoDePregunta);
         iniciarFormularioDTO.setOptions(List.of());
         return iniciarFormularioDTO;
 

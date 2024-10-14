@@ -52,7 +52,7 @@ public class SecuenciaPreguntaService {
         secuenciaPreguntaRepository.deleteById(id);
     }
 
-    public Pregunta getNextPregunta(Integer questionId, Integer selectedOptionId) {
+    public Pregunta getNextPregunta(Integer selectedOptionId) {
         // Lógica para encontrar la siguiente pregunta basada en la opción seleccionada.
         SecuenciaPregunta secuencia = secuenciaPreguntaRepository.findByIdOpcionPregunta(selectedOptionId)
                 .orElseThrow(() -> new EntityNotFoundException("No se encontró la secuencia para la opción seleccionada"));

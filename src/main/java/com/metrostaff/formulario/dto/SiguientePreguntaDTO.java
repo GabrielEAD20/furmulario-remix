@@ -1,12 +1,16 @@
 package com.metrostaff.formulario.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.List;
+@Getter
+@Setter
 public class SiguientePreguntaDTO {
 
     @JsonProperty("next_question_id")
-    private String nextQuestionId;
+    private Integer nextQuestionId;
 
     @JsonProperty("question_text")
     private String questionText;
@@ -17,11 +21,16 @@ public class SiguientePreguntaDTO {
     @JsonProperty("options")
     private List<OpcionDTO> options;
 
+    @JsonProperty("respuesta_guardad_id")
+    private List<Integer> respuestasId;
+
     // Getters y Setters
 
+    @Getter
+    @Setter
     public static class OpcionDTO {
         @JsonProperty("option_id")
-        private String optionId;
+        private Integer optionId;
 
         @JsonProperty("option_text")
         private String optionText;

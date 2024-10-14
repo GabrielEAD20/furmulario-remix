@@ -26,8 +26,9 @@ public class PreguntaService {
                 .orElseThrow(() -> new EntityNotFoundException("Pregunta not found with id " + id));
     }
 
-    public Pregunta createPregunta(String descripcion, String descripcionMostrar, int nroOrden, boolean tieneOpciones, String textoRespuesta) {
+    public Pregunta createPregunta(String descripcion, String descripcionMostrar, int nroOrden, boolean tieneOpciones, String textoRespuesta, String tipoPregunta) {
         Pregunta pregunta = new Pregunta();
+        pregunta.setTipoPregunta(tipoPregunta);
         pregunta.setDescripcion(descripcion);
         pregunta.setDescripcionMostrar(descripcionMostrar);
         pregunta.setNroOrden(nroOrden);
@@ -36,9 +37,10 @@ public class PreguntaService {
         return preguntaRepository.save(pregunta);
     }
 
-    public Pregunta updatePregunta(Integer id, String descripcion, String descripcionMostrar, int nroOrden, boolean tieneOpciones, String textoRespuesta) {
+    public Pregunta updatePregunta(Integer id, String descripcion, String descripcionMostrar, int nroOrden, boolean tieneOpciones, String textoRespuesta, String tipoPregunta) {
         Pregunta pregunta = preguntaRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Pregunta not found with id " + id));
+        pregunta.setTipoPregunta(tipoPregunta);
         pregunta.setDescripcion(descripcion);
         pregunta.setDescripcionMostrar(descripcionMostrar);
         pregunta.setNroOrden(nroOrden);

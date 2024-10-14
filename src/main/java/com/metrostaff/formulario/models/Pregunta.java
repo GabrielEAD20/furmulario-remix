@@ -16,7 +16,9 @@ public class Pregunta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
+
+    private String tipoPregunta;
 
     private String descripcion;
 

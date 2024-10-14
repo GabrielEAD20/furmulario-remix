@@ -1,29 +1,29 @@
-package com.metrostaff.formulario.models;
+    package com.metrostaff.formulario.models;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+    import jakarta.persistence.*;
+    import lombok.AllArgsConstructor;
+    import lombok.Getter;
+    import lombok.NoArgsConstructor;
+    import lombok.Setter;
 
-@Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class OpcionPregunta {
+    @Entity
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class OpcionPregunta {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Integer id;
 
-    private String descripcion;
+        private String descripcion;
 
-    @Column(name = "descripcion_mostrar")
-    private String descripcionMostrar;
+        @Column(name = "descripcion_mostrar")
+        private String descripcionMostrar;
 
-    @Column(name = "id_pregunta")
-    private int idPregunta;
+        @Column(name = "id_pregunta")
+        private int idPregunta;
 
 
-}
+    }

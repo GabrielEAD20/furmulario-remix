@@ -17,6 +17,7 @@ public class IniciarFormularioDTO {
     @JsonProperty("question_text")
     private String questionText;
 
+
     @JsonProperty("question_type")
     private String questionType;
 
