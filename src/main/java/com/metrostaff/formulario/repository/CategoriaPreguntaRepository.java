@@ -1,4 +1,7 @@
 package com.metrostaff.formulario.repository;
 
-public class CategoriaPreguntaRepository {
+import com.metrostaff.formulario.models.CategoriaPregunta;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoriaPreguntaRepository extends JpaRepository<CategoriaPregunta, Integer> {
 }
